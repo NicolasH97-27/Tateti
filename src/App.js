@@ -73,6 +73,11 @@ function App() {
           setNotification("ganaste O")
           setDisable(true)
         }
+        if(!ganoX && !ganoO){
+          setNotification("empate")
+          setDisable(true)
+
+        }
           
 
 
