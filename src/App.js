@@ -42,7 +42,6 @@ function App() {
     const verificarO = arraySquares.map(squere => {
       return(squere === "o")
     })
-
     
     rules2Win.forEach((rules)=>{
         let verificadoX = []
@@ -73,7 +72,10 @@ function App() {
           setNotification("ganaste O")
           setDisable(true)
         }
-        if(!ganoX && !ganoO){
+
+        console.log(square.includes(""))
+        
+        if( square.filter(i => i === "").length <= 1 && !disable) {
           setNotification("empate")
           setDisable(true)
 
