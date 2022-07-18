@@ -30,9 +30,7 @@ function App() {
       return;
     }
 
-    setTurno(turno === PLAYER_X ? PLAYER_O : PLAYER_X)
     const newSquares = squares.map((cellValue, i) => i === index ? turno : cellValue);
-    setSquares(newSquares)
 
     const [newNotification, newDisable] = [winningPositions.map(winningPosition => [
       winningPosition.map(x => newSquares[x] === PLAYER_X).every(x => x),
@@ -44,16 +42,20 @@ function App() {
           ? [currentCalculatedX, true]
           : [currentCalculatedX, currentCalculatedO]
       , [false, false])]
-      .map(([winX, winO]) => {
-        return winX
+      .map(([winX, winO]) => 
+        winX
           ? ['Ganaste X', true]
           : winO
             ? ['Ganaste O', true]
             : newSquares.filter(x => x === EMPTY).length === 0
               ? ['Empate', true]
               : [notification, disable]
-      }).flatMap(x => x);
+      ).flatMap(x => x);
 
+    const newTurno = turno === PLAYER_X ? PLAYER_O : PLAYER_X;
+
+    setTurno(newTurno)
+    setSquares(newSquares)
     setNotification(newNotification);
     setDisable(newDisable);
   }
