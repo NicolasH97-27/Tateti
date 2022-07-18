@@ -70,7 +70,7 @@ function App() {
         <div>{
           a.map((b,sindex) =>{
             return(
-              <button disabled={disable} onClick={() => onClick(b)}>{squares[b]}</button>
+              <button disabled={disable} key={sindex} onClick={() => onClick(b)}>{squares[b]}</button>
             )
           })}
         </div>

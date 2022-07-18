@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "git add . && git commit -m heroku-tateti && git push heroku main"
+    "deploy-h": "git add . && git commit -m heroku-tateti && git push heroku main",
+    "deploy": "git add . && git commit -m tateti && git push origin"
   },
   "eslintConfig": {
     "extends": [
