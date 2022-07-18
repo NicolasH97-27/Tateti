@@ -6,6 +6,7 @@ import Notification from './components/Notification';
 const EMPTY = '';
 const PLAYER_X = 'X';
 const PLAYER_O = 'O';
+const tateti = [[0,1,2],[3,4,5],[6,7,8]]
 
 function App() {
   const [turno, setTurno] = useState(PLAYER_X);
@@ -64,21 +65,17 @@ function App() {
       <h1>TATETI</h1>
 
       <div className='fila'>
-        <div>
-          <button disabled={disable} onClick={() => onClick(0)}>{squares[0]}</button>
-          <button disabled={disable} onClick={() => onClick(1)}>{squares[1]}</button>
-          <button disabled={disable} onClick={() => onClick(2)}>{squares[2]}</button>
+      {tateti.map((a,index) => {
+      return(
+        <div>{
+          a.map((b,sindex) =>{
+            return(
+              <button disabled={disable} onClick={() => onClick(b)}>{squares[b]}</button>
+            )
+          })}
         </div>
-        <div>
-          <button disabled={disable} onClick={() => onClick(3)}>{squares[3]}</button>
-          <button disabled={disable} onClick={() => onClick(4)}>{squares[4]}</button>
-          <button disabled={disable} onClick={() => onClick(5)}>{squares[5]}</button>
-        </div>
-        <div>
-          <button disabled={disable} onClick={() => onClick(6)}>{squares[6]}</button>
-          <button disabled={disable} onClick={() => onClick(7)}>{squares[7]}</button>
-          <button disabled={disable} onClick={() => onClick(8)}>{squares[8]}</button>
-        </div>
+        )
+      })}
       </div>
 
 
